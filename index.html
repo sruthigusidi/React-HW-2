@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React with CDN</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <script>
+    // Define styles
+    const paraStyle = { textIndent: "30px" };
+    const boxStyle = { marginBottom: "35px" };
+
+    // Heading
+    const heading = React.createElement('h1', null, 'Topics Covered');
+
+    // First paragraph
+    const firstPara = React.createElement(
+      'p', 
+      null, 
+      'The following is a list of all the topics we cover in the MDN learning area.'
+    );
+
+    // Box 1 
+    const box1 = React.createElement('div',  { style: boxStyle },
+      [
+        React.createElement('a', { href: '#' }, 'Getting started with the web'),
+        React.createElement('p', { style: paraStyle }, 
+          'Provides a practical introduction to web development for complete beginners.'
+        )
+      ]
+    );
+
+    // Box 2 
+    const box2 = React.createElement(
+      'div', 
+      { style: boxStyle },
+      [
+        React.createElement('a', { href: '#' }, 'HTML - Structuring the web'),
+        React.createElement('p', { style: paraStyle }, 
+          'HTML is the language that we use to structure the different parts of our content and define what their meaning or purpose is. This topic teaches HTML in detail.'
+        )
+      ]
+    );
+
+    // Box 3 
+    const box3 = React.createElement(
+      'div', 
+      { style: boxStyle },
+      [
+        React.createElement('a', { href: '#' }, 'CSS - Styling the web'),
+        React.createElement('p', { style: paraStyle }, 
+          'CSS is the language that we use to control our web content style and layout, as well as adding behavior like animation. This topic provides comprehensive coverage of CSS.'
+        )
+      ]
+    );
+
+    // Container 
+    const container = React.createElement(
+      'div', 
+      null, 
+      [heading, firstPara, box1, box2, box3]
+    );
+
+    // Rendering
+    ReactDOM.render(container, document.getElementById('root'));
+
+  </script>
+
+</body>
+</html>
